@@ -31,6 +31,6 @@ sNum / 3
 write sNum
 write 'Hello World!'
 
-(Output: 54  10  Hello World!)
+(Output: Meow  54  10  Hello World!)
 
 
