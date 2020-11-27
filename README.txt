@@ -6,11 +6,11 @@ string (str [Name] = [value])
 
 
 
-Function:
+Functions:
 
 write (write [Value type's name] or ['value'])
 
-V - size (V: [value]) (Nuber of strings) (Default: 25)
+V - size (V: [value]) (Nuber of strings) (Default: 100)
 ...
 
 

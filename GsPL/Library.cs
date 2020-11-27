@@ -8,7 +8,7 @@ namespace GsPL
 {
     static class Library
     {
-        public static int V = 25;
+        public static int V = 100;
         public static string[] lines = new string[V];
         public static string[,] ints = new string[V, 2];
         public static string[,] strings = new string[V, 2]; 
