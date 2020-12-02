@@ -65,7 +65,7 @@ namespace GsPL
                                 OutputTB.Text += Library.ints[j, 1] + "  ";
                             else if (value == Library.strings[j, 0])
                                 OutputTB.Text += Library.strings[j, 1] + "  ";
-
+                            //Debug(value);
                         }
                     }
                 }
@@ -77,94 +77,7 @@ namespace GsPL
                         {
                             string operatoin = Library.lines[i].Remove(0, Library.ints[k, 0].Length + 1);
                             string sNum = operatoin.Trim(new char[] { '+', '-', '*', '/', ' ', '=' });
-                            if (operatoin.StartsWith("+"))
-                            {
-                                for (int x = 0; x < Library.V; x++)
-                                {
-                                    if (Library.ints[x, 0] != null && sNum.StartsWith(Library.ints[x, 0]))
-                                    {
-                                        Library.ints[k, 1] = Convert.ToString(int.Parse(Library.ints[k, 1]) + int.Parse(Library.ints[x, 1]));
-                                    }
-                                    else
-                                    {
-                                        try
-                                        {
-                                            Library.ints[k, 1] = Convert.ToString(int.Parse(Library.ints[k, 1]) + int.Parse(sNum));
-                                            break;
-                                        }
-                                        catch
-                                        {
-                                            continue;
-                                        }
-                                    }
-                                }
-                            }
-                            if (operatoin.StartsWith("-"))
-                            {
-                                for (int x = 0; x < Library.V; x++)
-                                {
-                                    if (Library.ints[x, 0] != null && sNum.StartsWith(Library.ints[x, 0]))
-                                    {
-                                        Library.ints[k, 1] = Convert.ToString(int.Parse(Library.ints[k, 1]) - int.Parse(Library.ints[x, 1]));
-                                    }
-                                    else
-                                    {
-                                        try
-                                        {
-                                            Library.ints[k, 1] = Convert.ToString(int.Parse(Library.ints[k, 1]) - int.Parse(sNum));
-                                            break;
-                                        }
-                                        catch
-                                        {
-                                            continue;
-                                        }
-                                    }
-                                }
-                            }
-                            if (operatoin.StartsWith("*"))
-                            {
-                                for (int x = 0; x < Library.V; x++)
-                                {
-                                    if (Library.ints[x, 0] != null && sNum.StartsWith(Library.ints[x, 0]))
-                                    {
-                                        Library.ints[k, 1] = Convert.ToString(int.Parse(Library.ints[k, 1]) * int.Parse(Library.ints[x, 1]));
-                                    }
-                                    else
-                                    {
-                                        try
-                                        {
-                                            Library.ints[k, 1] = Convert.ToString(int.Parse(Library.ints[k, 1]) * int.Parse(sNum));
-                                            break;
-                                        }
-                                        catch
-                                        {
-                                            continue;
-                                        }
-                                    }
-                                }
-                            }
-                            if (operatoin.StartsWith("/"))
-                            {
-                                for (int x = 0; x < Library.V; x++)
-                                {
-                                    if (Library.ints[x, 0] != null && sNum.StartsWith(Library.ints[x, 0]))
-                                    {
-                                        Library.ints[k, 1] = Convert.ToString(int.Parse(Library.ints[k, 1]) / int.Parse(Library.ints[x, 1]));
-                                    }
-                                    else
-                                    {
-                                        try
-                                        {
-                                            Library.ints[k, 1] = Convert.ToString(int.Parse(Library.ints[k, 1]) / int.Parse(sNum));
-                                            break;
-                                        }
-                                        catch
-                                        {
-                                            continue;
-                                        }
-                                    }
-                                }
-                            }
+                            Math(operatoin, k, sNum);
                             if (operatoin.StartsWith("="))
                             {
                                 int fNum = int.Parse(Library.ints[k, 1]);
@@ -193,7 +106,45 @@ namespace GsPL
                 }
             }
         }
-        private static void Debug(string value)
+        private void Math(string s, int i, string sNum)
+        {
+            for (int x = 0; x < Library.V; x++)
+            {
+                //int fNum = int.Parse(Library.ints[x, 1]);
+                if (Library.ints[x, 0] != null && sNum.StartsWith(Library.ints[x, 0]))
+                {
+                    if (s.StartsWith("+"))
+                        Library.ints[i, 1] = Convert.ToString(int.Parse(Library.ints[i, 1]) + int.Parse(Library.ints[x, 1]));
+                    else if (s.StartsWith("-"))
+                        Library.ints[i, 1] = Convert.ToString(int.Parse(Library.ints[i, 1]) - int.Parse(Library.ints[x, 1]));
+                    else if (s.StartsWith("*"))
+                        Library.ints[i, 1] = Convert.ToString(int.Parse(Library.ints[i, 1]) * int.Parse(Library.ints[x, 1]));
+                    else if (s.StartsWith("/"))
+                        Library.ints[i, 1] = Convert.ToString(int.Parse(Library.ints[i, 1]) / int.Parse(Library.ints[x, 1]));
+                    break;
+                }
+                else
+                {
+                    try
+                    {
+                        if (s.StartsWith("+"))
+                            Library.ints[i, 1] = Convert.ToString(int.Parse(Library.ints[i, 1]) + int.Parse(sNum));
+                        else if (s.StartsWith("-"))
+                            Library.ints[i, 1] = Convert.ToString(int.Parse(Library.ints[i, 1]) - int.Parse(sNum));
+                        else if (s.StartsWith("*"))
+                            Library.ints[i, 1] = Convert.ToString(int.Parse(Library.ints[i, 1]) * int.Parse(sNum));
+                        else if (s.StartsWith("/"))
+                            Library.ints[i, 1] = Convert.ToString(int.Parse(Library.ints[i, 1]) / int.Parse(sNum));
+                        break;
+                    }
+                    catch
+                    {
+                        continue;
+                    }
+                }
+            }
+        }
+        private void Debug(string value)
         {
             if (value != null)
             {

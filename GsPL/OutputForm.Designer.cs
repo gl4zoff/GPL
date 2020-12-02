@@ -43,6 +43,7 @@
             // 
             // InputTB
             // 
+            this.InputTB.Enabled = false;
             this.InputTB.Location = new System.Drawing.Point(13, 349);
             this.InputTB.Name = "InputTB";
             this.InputTB.Size = new System.Drawing.Size(373, 22);
@@ -50,6 +51,7 @@
             // 
             // Enter
             // 
+            this.Enter.Enabled = false;
             this.Enter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Enter.Location = new System.Drawing.Point(392, 349);
             this.Enter.Name = "Enter";
