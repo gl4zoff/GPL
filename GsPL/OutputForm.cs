@@ -21,7 +21,7 @@ namespace GsPL
             {
                 Library.V = int.Parse(Library.lines[0].Remove(0, 3));
             }
-            for (int i = 0; i < Library.V; i++)
+            for (int i = 0;  i < Library.V; i++)
             {
                 if (Library.lines[i] == null)
                     continue;
@@ -69,6 +69,70 @@ namespace GsPL
                         }
                     }
                 }
+                else if (Library.lines[i].StartsWith("if"))
+                {
+                    int n = i + 1;
+                    int N = n;
+                    string fNum = Library.lines[i].Remove(0, 3);
+                    string sym = Library.lines[i].Remove(0, 3);
+                    string sNum;
+                    for (int j = 0; j < Library.V; j++)
+                    {  
+                        if (Library.ints[j, 0] != null && fNum.StartsWith(Library.ints[j, 0]))
+                        {
+                            sym = sym.Replace(Library.ints[j, 0] + " ", "");
+                            fNum = Library.ints[j, 1];
+                        }
+                        else if (Library.strings[j, 0] != null && fNum.StartsWith(Library.strings[j, 0]))
+                        {
+                            fNum = Library.strings[j, 1];
+                        }
+                    }
+                    sNum = sym;
+                    if (sym.StartsWith("<"))
+                        sym = "<";
+                    else if (sym.StartsWith(">"))
+                        sym = ">";
+                    else if (sym.StartsWith("=="))
+                        sym = "==";
+                    else if (sym.StartsWith("!="))
+                        sym = "!=";
+                    sNum = sNum.Replace(sym + " ", "");
+                    for (int j = 0; j < Library.V; j++)
+                    {
+                        if (Library.ints[j, 0] != null && sNum.StartsWith(Library.ints[j, 0]))
+                        {
+                            sNum = Library.ints[j, 1];
+                            
+                        }
+                        else if (Library.strings[j, 0] != null && sNum.StartsWith(Library.strings[j, 0]))
+                        {
+                            sNum = Library.strings[j, 1];
+                        }
+                    }
+                    
+                    if (Library.lines[n] == "{")
+                    {
+                        for (; N < Library.V; N++)
+                        {
+                            if (Library.lines[N] == "}")
+                                break;
+                            else
+                                continue;
+                        }
+                    }
+
+                    if (sym.StartsWith("<") && int.Parse(fNum) < int.Parse(sNum))
+                        continue;
+                    else if (sym.StartsWith(">") && int.Parse(fNum) > int.Parse(sNum))
+                        continue;
+                    else if (sym.StartsWith("==") && int.Parse(fNum) == int.Parse(sNum))
+                        continue;
+                    else if (sym.StartsWith("!=") && int.Parse(fNum) != int.Parse(sNum))
+                        continue;
+                    else
+                        i = N;
+                }
                 else
                 {
                     for (int k = 0; k < Library.V; k++)
@@ -78,29 +142,6 @@ namespace GsPL
                             string operatoin = Library.lines[i].Remove(0, Library.ints[k, 0].Length + 1);
                             string sNum = operatoin.Trim(new char[] { '+', '-', '*', '/', ' ', '=' });
                             Math(operatoin, k, sNum);
-                            if (operatoin.StartsWith("="))
-                            {
-                                int fNum = int.Parse(Library.ints[k, 1]);
-                                for (int x = 0; x < Library.V; x++)
-                                {
-                                    if (Library.ints[x, 0] != null && sNum.StartsWith(Library.ints[x, 0]))
-                                    {
-                                        Library.ints[k, 1] = Convert.ToString(fNum = int.Parse(Library.ints[x, 1]));
-                                    }
-                                    else
-                                    {
-                                        try
-                                        {
-                                            Library.ints[k, 1] = Convert.ToString(fNum = int.Parse(sNum));
-                                            break;
-                                        }
-                                        catch
-                                        {
-                                            continue;
-                                        }
-                                    }
-                                }
-                            }
                         }
                     }
                 }
@@ -110,7 +151,7 @@ namespace GsPL
         {
             for (int x = 0; x < Library.V; x++)
             {
-                //int fNum = int.Parse(Library.ints[x, 1]);
+                int fNum = int.Parse(Library.ints[i, 1]);
                 if (Library.ints[x, 0] != null && sNum.StartsWith(Library.ints[x, 0]))
                 {
                     if (s.StartsWith("+"))
@@ -121,6 +162,8 @@ namespace GsPL
                         Library.ints[i, 1] = Convert.ToString(int.Parse(Library.ints[i, 1]) * int.Parse(Library.ints[x, 1]));
                     else if (s.StartsWith("/"))
                         Library.ints[i, 1] = Convert.ToString(int.Parse(Library.ints[i, 1]) / int.Parse(Library.ints[x, 1]));
+                    else if (s.StartsWith("="))
+                        Library.ints[i, 1] = Convert.ToString(int.Parse(Library.ints[x, 1]));
                     break;
                 }
                 else
@@ -135,6 +178,8 @@ namespace GsPL
                             Library.ints[i, 1] = Convert.ToString(int.Parse(Library.ints[i, 1]) * int.Parse(sNum));
                         else if (s.StartsWith("/"))
                             Library.ints[i, 1] = Convert.ToString(int.Parse(Library.ints[i, 1]) / int.Parse(sNum));
+                        else if (s.StartsWith("="))
+                            Library.ints[i, 1] = Convert.ToString(int.Parse(sNum));
                         break;
                     }
                     catch
@@ -147,9 +192,7 @@ namespace GsPL
         private void Debug(string value)
         {
             if (value != null)
-            {
                 MessageBox.Show(value);
-            }
             else
                 MessageBox.Show("Значение не найдено");    
         }

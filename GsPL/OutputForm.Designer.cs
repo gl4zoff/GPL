@@ -35,6 +35,7 @@
             // 
             // OutputTB
             // 
+            this.OutputTB.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.OutputTB.Location = new System.Drawing.Point(13, 13);
             this.OutputTB.Multiline = true;
             this.OutputTB.Name = "OutputTB";
