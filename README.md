@@ -26,14 +26,21 @@ str hw = Meow
 
 if sNum > fNum
 {
+
 write hw
+
 write sNum
+
 }
 
+
 sNum - fNum
+
 sNum / 3
 
+
 write sNum
+
 write 'Hello World!'
 
 (Output: Meow  54  10  Hello World!)
