@@ -21,7 +21,9 @@ Example:
 
 V: 20
 int sNum = 54
+
 int fNum = 24
+
 str hw = Meow
 
 if sNum > fNum
