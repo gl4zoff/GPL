@@ -27,6 +27,7 @@ int fNum = 24
 str hw = Meow
 
 if sNum > fNum
+
 {
 
 write hw
