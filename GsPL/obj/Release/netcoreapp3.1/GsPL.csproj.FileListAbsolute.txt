@@ -1,0 +1,16 @@
+C:\Users\admin\source\repos\GsPL\GsPL\bin\Release\netcoreapp3.1\GsPL.exe
+C:\Users\admin\source\repos\GsPL\GsPL\bin\Release\netcoreapp3.1\GsPL.deps.json
+C:\Users\admin\source\repos\GsPL\GsPL\bin\Release\netcoreapp3.1\GsPL.runtimeconfig.json
+C:\Users\admin\source\repos\GsPL\GsPL\bin\Release\netcoreapp3.1\GsPL.runtimeconfig.dev.json
+C:\Users\admin\source\repos\GsPL\GsPL\bin\Release\netcoreapp3.1\GsPL.dll
+C:\Users\admin\source\repos\GsPL\GsPL\bin\Release\netcoreapp3.1\GsPL.pdb
+C:\Users\admin\source\repos\GsPL\GsPL\obj\Release\netcoreapp3.1\GsPL.csprojAssemblyReference.cache
+C:\Users\admin\source\repos\GsPL\GsPL\obj\Release\netcoreapp3.1\GsPL.Form1.resources
+C:\Users\admin\source\repos\GsPL\GsPL\obj\Release\netcoreapp3.1\GsPL.OutputForm.resources
+C:\Users\admin\source\repos\GsPL\GsPL\obj\Release\netcoreapp3.1\GsPL.csproj.GenerateResource.cache
+C:\Users\admin\source\repos\GsPL\GsPL\obj\Release\netcoreapp3.1\GsPL.AssemblyInfoInputs.cache
+C:\Users\admin\source\repos\GsPL\GsPL\obj\Release\netcoreapp3.1\GsPL.AssemblyInfo.cs
+C:\Users\admin\source\repos\GsPL\GsPL\obj\Release\netcoreapp3.1\GsPL.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\GsPL\GsPL\obj\Release\netcoreapp3.1\GsPL.dll
+C:\Users\admin\source\repos\GsPL\GsPL\obj\Release\netcoreapp3.1\GsPL.pdb
+C:\Users\admin\source\repos\GsPL\GsPL\obj\Release\netcoreapp3.1\GsPL.genruntimeconfig.cache
