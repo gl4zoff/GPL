@@ -22,18 +22,5 @@ namespace GsPL
             newArr[newArr.Length - 1] = value;
             arr = newArr;
         }
-        public static void AddValuesTypes(ref string[,] arr, string name, string value)
-        {
-            string[,] newArr = new string[arr.Length + 1, 2];
-
-            for (int i = 0; i < arr.Length; i++)
-            {
-                newArr[i, 0] = arr[i, 0];
-                newArr[i, 1] = arr[i, 1];
-            }
-            newArr[newArr.Length - 1, 1] = value;
-            newArr[newArr.Length - 1, 0] = name;
-            arr = newArr;
-        }
     }
 }
