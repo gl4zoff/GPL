@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Code = new System.Windows.Forms.ListBox();
             this.OpenFile = new System.Windows.Forms.Button();
             this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.FileName = new System.Windows.Forms.TextBox();
             this.Start = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // Code
@@ -101,6 +104,7 @@
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "gpl";
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,6 +118,7 @@
         private System.Windows.Forms.TextBox FileName;
         private System.Windows.Forms.Button Start;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }
 

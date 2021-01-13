@@ -17,11 +17,7 @@ namespace GsPL
 
         private void OutputForm_Load(object sender, EventArgs e)
         {
-            if (Library.lines[0].StartsWith("V:"))
-            {
-                Library.V = int.Parse(Library.lines[0].Remove(0, 3));
-            }
-            for (int i = 0;  i < Library.V; i++)
+            for (int i = 0;  i < Library.lines.Length; i++)
             {
                 if (Library.lines[i] == null)
                     continue;
@@ -59,7 +55,7 @@ namespace GsPL
                     }
                     else
                     {
-                        for (int j = 0; j < Library.V; j++)
+                        for (int j = 0; j < Library.lines.Length; j++)
                         {
                             if (value == Library.ints[j, 0])
                                 OutputTB.Text += Library.ints[j, 1] + "  ";
@@ -76,7 +72,7 @@ namespace GsPL
                     string fNum = Library.lines[i].Remove(0, 3);
                     string sym = Library.lines[i].Remove(0, 3);
                     string sNum;
-                    for (int j = 0; j < Library.V; j++)
+                    for (int j = 0; j < Library.lines.Length; j++)
                     {  
                         if (Library.ints[j, 0] != null && fNum.StartsWith(Library.ints[j, 0]))
                         {
@@ -98,7 +94,7 @@ namespace GsPL
                     else if (sym.StartsWith("!="))
                         sym = "!=";
                     sNum = sNum.Replace(sym + " ", "");
-                    for (int j = 0; j < Library.V; j++)
+                    for (int j = 0; j < Library.lines.Length; j++)
                     {
                         if (Library.ints[j, 0] != null && sNum.StartsWith(Library.ints[j, 0]))
                         {
@@ -113,7 +109,7 @@ namespace GsPL
                     
                     if (Library.lines[n] == "{")
                     {
-                        for (; N < Library.V; N++)
+                        for (; N < Library.lines.Length; N++)
                         {
                             if (Library.lines[N] == "}")
                                 break;
@@ -135,7 +131,7 @@ namespace GsPL
                 }
                 else
                 {
-                    for (int k = 0; k < Library.V; k++)
+                    for (int k = 0; k < Library.lines.Length; k++)
                     {
                         if (Library.ints[k, 0] != null && Library.lines[i].StartsWith(Library.ints[k, 0]))
                         {
@@ -149,7 +145,7 @@ namespace GsPL
         }
         private void Math(string s, int i, string sNum)
         {
-            for (int x = 0; x < Library.V; x++)
+            for (int x = 0; x < Library.lines.Length; x++)
             {
                 int fNum = int.Parse(Library.ints[i, 1]);
                 if (Library.ints[x, 0] != null && sNum.StartsWith(Library.ints[x, 0]))

@@ -36,8 +36,15 @@ namespace GsPL
                     while ((line = sr.ReadLine()) != null)
                     {
                         i++;
-                        Library.lines[i] = line;
+                        if(i == Library.lines.Length)
+                        {
+                            Library.AddValue(ref Library.lines, line);
+                        }
+                        else
+                            Library.lines[i] = line;
                     }
+                    Library.ints = new string[Library.lines.Length, 2];
+                    Library.strings = new string[Library.lines.Length, 2];
                 }
                 for (int i = 0; i < Library.lines.Length; i++)
                 {
