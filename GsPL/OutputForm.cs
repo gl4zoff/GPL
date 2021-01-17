@@ -43,7 +43,7 @@ namespace GsPL
                     value = value.Replace(" = ", "");
 
                     Library.strings[i, 0] = Name;
-                    Library.strings[i, 1] = value;
+                    Library.strings[i, 1] = value.Replace("'", "");
                 }
                 else if (Library.lines[i].StartsWith("write"))
                 {
@@ -51,16 +51,16 @@ namespace GsPL
                     if (value.StartsWith("'"))
                     {
                         value = value.Replace("'", "");
-                        OutputTB.Text += value + "  ";
+                        OutputTB.Text += value + "\r\n";
                     }
                     else
                     {
                         for (int j = 0; j < Library.lines.Length; j++)
                         {
                             if (value == Library.ints[j, 0])
-                                OutputTB.Text += Library.ints[j, 1] + "  ";
+                                OutputTB.Text += Library.ints[j, 1] + "\r\n";
                             else if (value == Library.strings[j, 0])
-                                OutputTB.Text += Library.strings[j, 1] + "  ";
+                                OutputTB.Text += Library.strings[j, 1] + "\r\n";
                             //Debug(value);
                         }
                     }
